@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <br>
+<div class="top-bar">
+    <a href="/login" class="admin-btn">Admin Login</a>
+</div>
+
+<div class="container">
+    <h2>💬 Feedback Form</h2>
+    <p style="color:red;">{{ error }}</p>
+    <p>We value your feedback!</p>
+
+    <form action="/submit" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Feedback" required></textarea>
+        <button type="submit">Submit Feedback</button>
+    </form>
+</div>
+
+{% if success %}
+<div id="popup" class="popup">
+    <div class="popup-box">
+        <p>✅ {{ success }}</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+</div>
+
+<script>
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+{% endif %}
+
+
+</body>
+</html>
