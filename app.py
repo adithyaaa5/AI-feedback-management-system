@@ -6,7 +6,7 @@ app.secret_key = 'secret123'
 
 # MySQL connection
 db = mysql.connector.connect(
-    host="localhost",
+    host="os.getenv("DB_HOST")",
     user="root",
     password="YOUR PASSWORD",   # change this
     database="feedback_db"
